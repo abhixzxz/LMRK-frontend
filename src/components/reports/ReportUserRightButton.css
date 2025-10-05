@@ -1,0 +1,236 @@
+.blue-btn {
+  background: linear-gradient(135deg, #1976d2 0%, #42a5f5 50%, #64b5f6 100%);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 36px;
+  min-width: 140px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  box-shadow: 0 8px 16px rgba(25, 118, 210, 0.3),
+    0 4px 8px rgba(25, 118, 210, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.blue-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.blue-btn:hover {
+  transform: perspective(1000px) rotateX(-5deg) rotateY(5deg) translateY(-3px);
+  background: linear-gradient(135deg, #1565c0 0%, #2196f3 50%, #42a5f5 100%);
+  box-shadow: 0 12px 24px rgba(25, 118, 210, 0.4),
+    0 6px 12px rgba(25, 118, 210, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.blue-btn:hover::before {
+  left: 100%;
+}
+
+.blue-btn:active {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(1px);
+  box-shadow: 0 4px 8px rgba(25, 118, 210, 0.3),
+    0 2px 4px rgba(25, 118, 210, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.1s;
+}
+.green-btn {
+  background: linear-gradient(135deg, #43a047 0%, #66bb6a 50%, #81c784 100%);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 36px;
+  min-width: 140px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  box-shadow: 0 8px 16px rgba(67, 160, 71, 0.3),
+    0 4px 8px rgba(67, 160, 71, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.green-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.green-btn:hover {
+  transform: perspective(1000px) rotateX(-5deg) rotateY(5deg) translateY(-3px);
+  background: linear-gradient(135deg, #2e7d32 0%, #4caf50 50%, #66bb6a 100%);
+  box-shadow: 0 12px 24px rgba(67, 160, 71, 0.4),
+    0 6px 12px rgba(67, 160, 71, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.green-btn:hover::before {
+  left: 100%;
+}
+
+.green-btn:active {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(1px);
+  box-shadow: 0 4px 8px rgba(67, 160, 71, 0.3), 0 2px 4px rgba(67, 160, 71, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.1s;
+}
+
+.yellow-btn {
+  background: linear-gradient(135deg, #fbc02d 0%, #ffeb3b 50%, #fff176 100%);
+  color: #333;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 36px;
+  min-width: 140px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  box-shadow: 0 8px 16px rgba(251, 192, 45, 0.3),
+    0 4px 8px rgba(251, 192, 45, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.yellow-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.yellow-btn:hover {
+  transform: perspective(1000px) rotateX(-5deg) rotateY(5deg) translateY(-3px);
+  background: linear-gradient(135deg, #f57f17 0%, #fbc02d 50%, #ffeb3b 100%);
+  box-shadow: 0 12px 24px rgba(251, 192, 45, 0.4),
+    0 6px 12px rgba(251, 192, 45, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.yellow-btn:hover::before {
+  left: 100%;
+}
+
+.yellow-btn:active {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(1px);
+  box-shadow: 0 4px 8px rgba(251, 192, 45, 0.3),
+    0 2px 4px rgba(251, 192, 45, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.1s;
+}
+
+.red-blink-btn {
+  background: linear-gradient(135deg, #e53935 0%, #f44336 50%, #ef5350 100%);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 36px;
+  min-width: 140px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  box-shadow: 0 8px 16px rgba(229, 57, 53, 0.3),
+    0 4px 8px rgba(229, 57, 53, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.red-blink-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.red-blink-btn:hover {
+  transform: perspective(1000px) rotateX(-5deg) rotateY(5deg) translateY(-3px);
+  background: linear-gradient(135deg, #b71c1c 0%, #d32f2f 50%, #e53935 100%);
+  box-shadow: 0 12px 24px rgba(229, 57, 53, 0.4),
+    0 6px 12px rgba(229, 57, 53, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  animation: pulse-glow 1.5s ease-in-out infinite alternate;
+}
+
+.red-blink-btn:hover::before {
+  left: 100%;
+}
+
+.red-blink-btn:active {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(1px);
+  box-shadow: 0 4px 8px rgba(229, 57, 53, 0.3), 0 2px 4px rgba(229, 57, 53, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.1s;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 12px 24px rgba(229, 57, 53, 0.4),
+      0 6px 12px rgba(229, 57, 53, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 16px 32px rgba(229, 57, 53, 0.6),
+      0 8px 16px rgba(229, 57, 53, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.3), 0 0 20px rgba(229, 57, 53, 0.5);
+  }
+}
+
+.wide-btn {
+  min-width: 160px;
+  padding-left: 36px;
+  padding-right: 36px;
+}

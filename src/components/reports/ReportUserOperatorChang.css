@@ -1,0 +1,393 @@
+.report-user-operator-container {
+  font-family: "Inter", system-ui, Arial, sans-serif;
+  color: #0d1b2a;
+}
+
+.report-user-operator-header {
+  font-size: 2rem;
+  color: #1565c0;
+  font-weight: bold;
+  padding: 2rem;
+  background: linear-gradient(90deg, #e3f2fd 60%, #bbdefb 100%);
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 2px 8px rgba(21, 101, 192, 0.07);
+  letter-spacing: 1px;
+}
+
+.report-user-operator-form {
+  padding: 1.5rem 2.5rem;
+  background: #fff;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 2px 16px rgba(21, 101, 192, 0.06);
+  margin-bottom: 2rem;
+}
+
+.report-user-operator-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  align-items: end;
+  margin-bottom: 1.2rem;
+}
+
+.report-user-operator-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #1976d2;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.report-user-operator-select,
+.report-user-operator-input {
+  width: 100%;
+  padding: 0.3rem;
+  border-radius: 8px;
+  border: 1px solid #90caf9;
+  background: #f8fbff;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+
+.report-user-operator-select:focus,
+.report-user-operator-input:focus {
+  border: 1.5px solid #1976d2;
+  outline: none;
+}
+
+.report-user-operator-btn {
+  padding: 0.8rem 1.2rem;
+  background: linear-gradient(135deg, #1976d2 0%, #42a5f5 50%, #64b5f6 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  box-shadow: 0 8px 16px rgba(25, 118, 210, 0.3),
+    0 4px 8px rgba(25, 118, 210, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+}
+
+.report-user-operator-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.report-user-operator-btn:hover {
+  transform: perspective(1000px) rotateX(-5deg) rotateY(5deg) translateY(-3px);
+  box-shadow: 0 12px 24px rgba(25, 118, 210, 0.4),
+    0 6px 12px rgba(25, 118, 210, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #1565c0 0%, #2196f3 50%, #42a5f5 100%);
+}
+
+.report-user-operator-btn:hover::before {
+  left: 100%;
+}
+
+.report-user-operator-btn:active {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(1px);
+  box-shadow: 0 4px 8px rgba(25, 118, 210, 0.3),
+    0 2px 4px rgba(25, 118, 210, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.1s;
+}
+
+.report-user-operator-btn:disabled {
+  background: linear-gradient(135deg, #b0bec5 0%, #cfd8dc 50%, #eceff1 100%);
+  cursor: not-allowed;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  box-shadow: 0 4px 8px rgba(176, 190, 197, 0.2),
+    0 2px 4px rgba(176, 190, 197, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+  color: #78909c;
+}
+
+.report-user-operator-btn:disabled:hover {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  box-shadow: 0 4px 8px rgba(176, 190, 197, 0.2),
+    0 2px 4px rgba(176, 190, 197, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.report-user-operator-btn.secondary {
+  background: linear-gradient(135deg, #90a4ae 0%, #b0bec5 50%, #cfd8dc 100%);
+  box-shadow: 0 6px 12px rgba(144, 164, 174, 0.3),
+    0 3px 6px rgba(144, 164, 174, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.report-user-operator-btn.secondary:hover {
+  background: linear-gradient(135deg, #78909c 0%, #90a4ae 50%, #b0bec5 100%);
+  transform: perspective(1000px) rotateX(-5deg) rotateY(5deg) translateY(-3px);
+  box-shadow: 0 10px 20px rgba(144, 164, 174, 0.4),
+    0 5px 10px rgba(144, 164, 174, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.report-user-operator-error {
+  background: #ffebee;
+  color: #b71c1c;
+  padding: 0.9rem 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ffcdd2;
+  font-size: 1rem;
+}
+
+.report-user-operator-table-container {
+  margin-top: 1.5rem;
+}
+
+.report-user-operator-table-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+}
+
+.report-user-operator-table-title {
+  color: #1976d2;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.report-user-operator-table-export {
+  padding: 0.7rem 1.1rem;
+  background: linear-gradient(135deg, #2e7d32 0%, #4caf50 50%, #81c784 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  box-shadow: 0 8px 16px rgba(46, 125, 50, 0.3),
+    0 4px 8px rgba(46, 125, 50, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+}
+
+.report-user-operator-table-export::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.report-user-operator-table-export:hover {
+  transform: perspective(1000px) rotateX(-5deg) rotateY(5deg) translateY(-3px);
+  box-shadow: 0 12px 24px rgba(46, 125, 50, 0.4),
+    0 6px 12px rgba(46, 125, 50, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #1b5e20 0%, #388e3c 50%, #66bb6a 100%);
+}
+
+.report-user-operator-table-export:hover::before {
+  left: 100%;
+}
+
+.report-user-operator-table-export:active {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(1px);
+  box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3), 0 2px 4px rgba(46, 125, 50, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.1s;
+}
+
+.report-user-operator-table-wrapper {
+  overflow: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #f8fbff;
+}
+
+.report-user-operator-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  table-layout: fixed; /* Fixed layout for consistent column widths */
+}
+
+.report-user-operator-table thead {
+  background: #e3f2fd;
+  position: sticky;
+  top: 0;
+}
+
+.report-user-operator-table th {
+  text-align: left;
+  padding: 0.7rem;
+  border-bottom: 1.5px solid #bbdefb;
+  color: #1976d2;
+  font-weight: 700;
+}
+
+/* Column-specific widths */
+.report-user-operator-table th:first-child,
+.report-user-operator-table td:first-child {
+  width: 5%;
+  min-width: 60px;
+  max-width: 80px;
+}
+
+.report-user-operator-table th:nth-child(2),
+.report-user-operator-table td:nth-child(2) {
+  width: 20%;
+  min-width: 150px;
+}
+
+.report-user-operator-table th:nth-child(3),
+.report-user-operator-table td:nth-child(3) {
+  width: 75%;
+  min-width: 300px;
+}
+
+/* Additional columns get equal remaining space */
+.report-user-operator-table th:nth-child(n + 4),
+.report-user-operator-table td:nth-child(n + 4) {
+  width: auto;
+  min-width: 100px;
+}
+
+/* Column widths by header content (more specific) */
+.report-user-operator-table th[data-column="id"],
+.report-user-operator-table td[data-column="id"] {
+  width: 5% !important;
+  min-width: 60px;
+  max-width: 80px;
+  text-align: center;
+}
+
+.report-user-operator-table th[data-column="keyword"],
+.report-user-operator-table td[data-column="keyword"] {
+  width: 20% !important;
+  min-width: 150px;
+}
+
+.report-user-operator-table th[data-column="details"],
+.report-user-operator-table td[data-column="details"] {
+  width: 75% !important;
+  min-width: 300px;
+}
+
+.report-user-operator-table th[data-column="other"],
+.report-user-operator-table td[data-column="other"] {
+  width: auto;
+  min-width: 100px;
+}
+
+/* Ensure long text wraps properly in details column */
+.report-user-operator-table td:nth-child(3),
+.report-user-operator-table td[data-column="details"] {
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  max-width: 0; /* Force wrapping */
+  vertical-align: top; /* Align to top for better readability */
+}
+
+/* ID column styling */
+.report-user-operator-table td[data-column="id"] {
+  text-align: center;
+  font-weight: 600;
+  color: #1976d2;
+}
+
+/* Keyword column styling */
+.report-user-operator-table td[data-column="keyword"] {
+  font-weight: 500;
+  color: #333;
+}
+
+.report-user-operator-table td {
+  padding: 0.7rem;
+  border-bottom: 1px solid #eee;
+}
+
+.report-user-operator-table tr:nth-child(even) {
+  background: #f4faff;
+}
+
+.report-user-operator-no-data {
+  margin-top: 1.5rem;
+  color: #789;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 1200px) {
+  .report-user-operator-table th[data-column="id"],
+  .report-user-operator-table td[data-column="id"] {
+    width: 8% !important;
+    min-width: 70px;
+  }
+
+  .report-user-operator-table th[data-column="keyword"],
+  .report-user-operator-table td[data-column="keyword"] {
+    width: 25% !important;
+  }
+
+  .report-user-operator-table th[data-column="details"],
+  .report-user-operator-table td[data-column="details"] {
+    width: 67% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .report-user-operator-table th[data-column="id"],
+  .report-user-operator-table td[data-column="id"] {
+    width: 10% !important;
+    min-width: 50px;
+    font-size: 0.9rem;
+  }
+
+  .report-user-operator-table th[data-column="keyword"],
+  .report-user-operator-table td[data-column="keyword"] {
+    width: 30% !important;
+    font-size: 0.9rem;
+  }
+
+  .report-user-operator-table th[data-column="details"],
+  .report-user-operator-table td[data-column="details"] {
+    width: 60% !important;
+    font-size: 0.9rem;
+  }
+
+  .report-user-operator-table {
+    font-size: 0.9rem;
+  }
+
+  .report-user-operator-table th,
+  .report-user-operator-table td {
+    padding: 0.5rem;
+  }
+}

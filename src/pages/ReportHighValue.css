@@ -1,0 +1,223 @@
+/* views/ReportHighValue.css */
+:root {
+  --red: #e53935;
+  --red-dark: #c62828;
+  --red-soft: #ffebee;
+  --bg: #0f172a;
+  --card: #111827;
+  --muted: #94a3b8;
+  --text: #e5e7eb;
+  --input: #5d6979;
+  --input-border: #334155;
+  --focus: #60a5fa;
+}
+
+* { box-sizing: border-box; }
+
+.hv-container {
+  padding: 20px;
+  background: linear-gradient(135deg, #0b1022, #0f172a);
+  min-height: 40;
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+.hv-card {
+  background: var(--card);
+  border: 1px solid #1f2937;
+  border-radius: 14px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+.hv-title {
+  margin: 0 0 16px 0;
+  letter-spacing: .3px;
+  font-weight: 700;
+}
+
+
+
+.hv-form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hv-branch-line {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.hv-scheme-section-line {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.hv-amount-line {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.hv-date-line {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.hv-field.branch { grid-area: branch; }
+.hv-field.section { grid-area: section; }
+.hv-field.scheme { grid-area: scheme; }
+.hv-field.minamount { grid-area: minamount; }
+.hv-field.maxamount { grid-area: maxamount; }
+.hv-field.fromdate { grid-area: fromdate; }
+.hv-field.todate { grid-area: todate; }
+
+
+@media (max-width: 1100px) {
+  .hv-form-grid { grid-template-columns: repeat(2, minmax(220px, 1fr)); }
+}
+@media (max-width: 640px) {
+  .hv-form-grid { grid-template-columns: 1fr; }
+}
+
+.hv-field label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+
+.hv-field input,
+.hv-field select {
+  width: 220px;
+  min-width: 220px;
+  max-width: 220px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--input-border);
+  background: var(--input);
+  color: var(--text);
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+
+.hv-field input:focus,
+.hv-field select:focus {
+  border-color: var(--focus);
+  box-shadow: 0 0 0 3px rgba(96,165,250,.25);
+}
+
+.hv-field input.error,
+.hv-field select.error {
+  border-color: var(--red);
+}
+
+.error-text {
+  color: #ff8a80;
+  font-size: 12px;
+  margin-top: 6px;
+  display: block;
+}
+
+.hv-alert {
+  margin-top: 12px;
+  background: var(--red-soft);
+  color: var(--red-dark);
+  padding: 10px 12px;
+  border: 1px solid #ffcdd2;
+  border-radius: 10px;
+}
+
+.hv-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  transition: transform .08s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+}
+
+.btn:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+}
+
+.btn-red {
+  background: linear-gradient(135deg, var(--red), #ff5252);
+  color: white;
+  box-shadow: 0 8px 18px rgba(229,57,53,.35);
+}
+.btn-red:hover { transform: translateY(-1px); }
+.btn-red:active { transform: translateY(0); }
+
+.btn-red-outline {
+  background: transparent;
+  color: #ff8a80;
+  border: 2px solid #ff8a80;
+}
+.btn-red-outline:hover {
+  color: white;
+  border-color: #ff5252;
+  box-shadow: 0 8px 18px rgba(255,82,82,.25);
+}
+
+.hv-results {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.table-wrap {
+  overflow: auto;
+  background: var(--card);
+  border: 1px solid #1f2937;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+.hv-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+.hv-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #111827;
+  color: #e5e7eb;
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #1f2937;
+}
+
+.hv-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #1f2937;
+  color: #e5e7eb;
+}
+
+.hv-table tbody tr:hover {
+  background: #0f1a2d;
+}
+
+.muted {
+  color: var(--muted);
+  padding: 8px 2px;
+}

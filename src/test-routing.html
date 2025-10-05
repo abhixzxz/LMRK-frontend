@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Report Navigation</title>
+</head>
+<body>
+    <h1>Test Report Navigation</h1>
+    <div id="test-links">
+        <h2>Generated Routes:</h2>
+        <ul>
+            <li><a href="/reports/ReportAccChangSpeciSignature">Account Changes of Specimen Signature Report</a></li>
+            <li><a href="/reports/ReportChangePasswordLog">Change Password Log Report</a></li>
+            <li><a href="/reports/ReportUserRight">User Right Reports</a></li>
+            <li><a href="/reports/ReportNEFTTrans">NEFT Transaction Report</a></li>
+        </ul>
+    </div>
+    <script>
+        console.log('Testing routes...');
+        fetch('/api/reports/menu')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Menu items:', data.menuItems);
+                data.menuItems.forEach(item => {
+                    const route = `/reports/${item.url.replace('.js', '')}`;
+                    console.log(`${item.caption} -> ${route}`);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>

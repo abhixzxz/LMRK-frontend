@@ -1,0 +1,296 @@
+/* 3D Button Styles with Hover Effects */
+
+/* Base 3D Button Style */
+.btn-3d {
+  position: relative;
+  display: inline-block;
+  padding: 0.50rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+.btn-3d::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.btn-3d:hover::before {
+  left: 100%;
+}
+
+/* Save Button - Green 3D */
+.btn-3d-save {
+  background: linear-gradient(145deg, #4caf50, #388e3c);
+  color: white;
+  border-bottom: 4px solid #2e7d32;
+}
+
+.btn-3d-save:hover {
+  transform: translateY(-2px) rotateX(5deg);
+  box-shadow: 0 12px 24px rgba(76, 175, 80, 0.4), 0 8px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  animation: pulse-green 1.5s infinite;
+}
+
+.btn-3d-save:active {
+  transform: translateY(2px) rotateX(-5deg);
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Modify Button - Orange 3D */
+.btn-3d-modify {
+  background: linear-gradient(145deg, #ff9800, #f57c00);
+  color: white;
+  border-bottom: 4px solid #e65100;
+}
+
+.btn-3d-modify:hover {
+  transform: translateY(-2px) rotateY(5deg);
+  box-shadow: 0 12px 24px rgba(255, 152, 0, 0.4), 0 8px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  animation: shimmer-orange 2s infinite;
+}
+
+.btn-3d-modify:active {
+  transform: translateY(2px) rotateY(-5deg);
+}
+
+/* Locate Button - Blue 3D */
+.btn-3d-locate {
+  background: linear-gradient(145deg, #2196f3, hsl(321, 94%, 46%));
+  color: white;
+  border-bottom: 4px solid hsla(0, 0%, 4%, 0.934);
+}
+
+.btn-3d-locate:hover {
+  transform: translateY(-2px) rotateZ(2deg);
+  box-shadow: 0 12px 24px #101011e8, 0 8px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  animation: wave-blue 1.8s infinite;
+}
+
+.btn-3d-locate:active {
+  transform: translateY(2px) rotateZ(-2deg);
+}
+
+/* Reset Button - Purple 3D */
+.btn-3d-reset {
+  background: linear-gradient(145deg, #9c27b0, #7b1fa2);
+  color: white;
+  border-bottom: 4px solid lab(3.02% 0 0 / 0.926);
+}
+
+.btn-3d-reset:hover {
+  transform: translateY(-2px) rotateX(-5deg);
+  box-shadow: 0 12px 24px rgba(156, 39, 176, 0.4), 0 8px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  animation: bounce-purple 1.2s infinite;
+}
+
+.btn-3d-reset:active {
+  transform: translateY(2px) rotateX(5deg);
+}
+
+/* Close Button - Red 3D */
+.btn-3d-close {
+  background: linear-gradient(145deg, #f44336, #d32f2f);
+  color: white;
+  border-bottom: 4px solid #b71c1c;
+}
+
+.btn-3d-close:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(244, 67, 54, 0.4), 0 8px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  animation: glow-red 1s infinite alternate;
+}
+
+.btn-3d-close:active {
+  transform: translateY(2px) scale(0.98);
+}
+
+/* Disabled Button Style */
+.btn-3d-disabled {
+  background: linear-gradient(145deg, #cccccc, #999999) !important;
+  color: #666666 !important;
+  border-bottom: 4px solid #777777 !important;
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.btn-3d-disabled:hover {
+  transform: none !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  animation: none !important;
+}
+
+/* Keyframe Animations */
+@keyframes pulse-green {
+  0%,
+  100% {
+    background: linear-gradient(145deg, #4caf50, #388e3c);
+  }
+  50% {
+    background: linear-gradient(145deg, #66bb6a, #4caf50);
+  }
+}
+
+@keyframes shimmer-orange {
+  0% {
+    background: linear-gradient(145deg, #ff9800, #f57c00);
+  }
+  25% {
+    background: linear-gradient(145deg, #ffb74d, #ff9800);
+  }
+  50% {
+    background: linear-gradient(145deg, #ffa726, #fb8c00);
+  }
+  75% {
+    background: linear-gradient(145deg, #ffb74d, #ff9800);
+  }
+  100% {
+    background: linear-gradient(145deg, #ff9800, #f57c00);
+  }
+}
+
+@keyframes wave-blue {
+  0%,
+  100% {
+    transform: translateY(-2px) rotateZ(2deg);
+  }
+  33% {
+    transform: translateY(-4px) rotateZ(-1deg);
+  }
+  66% {
+    transform: translateY(-1px) rotateZ(3deg);
+  }
+}
+
+@keyframes bounce-purple {
+  0%,
+  100% {
+    transform: translateY(-2px) rotateX(-5deg) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) rotateX(-5deg) scale(1.02);
+  }
+}
+
+@keyframes glow-red {
+  0% {
+    box-shadow: 0 12px 24px rgba(244, 67, 54, 0.4),
+      0 8px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 16px 32px rgba(244, 67, 54, 0.6),
+      0 12px 24px rgba(244, 67, 54, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Modal Button Styles */
+.btn-3d-modal-search {
+  background: linear-gradient(145deg, #2196f3, #1976d2);
+  color: white;
+  border-bottom: 3px solid #0d47a1;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.btn-3d-modal-search:hover {
+  animation: search-pulse 1s infinite;
+}
+
+.btn-3d-modal-cancel {
+  background: linear-gradient(145deg, #f44336, #d32f2f);
+  color: white;
+  border-bottom: 3px solid #b71c1c;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.btn-3d-modal-cancel:hover {
+  animation: cancel-shake 0.5s infinite;
+}
+
+@keyframes search-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes cancel-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+/* Button Container Styles */
+.btn-3d-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  perspective: 1000px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .btn-3d {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-3d-container {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-3d {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .btn-3d-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

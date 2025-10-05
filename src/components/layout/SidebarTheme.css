@@ -1,0 +1,111 @@
+/* ===== PROFESSIONAL THEME CONFIGURATION ===== */
+
+:root {
+  /* Primary Colors - ICICI Bank Dark Red Theme */
+  --sidebar-primary: #8b1538;
+  --sidebar-primary-light: #a91b47;
+  --sidebar-primary-dark: #6b0f2a;
+
+  /* Secondary Colors - Deep Red Variants */
+  --sidebar-secondary: #b91c3c;
+  --sidebar-secondary-light: #dc2626;
+  --sidebar-secondary-dark: #991b1b;
+
+  /* Accent Colors - ICICI Orange Integration */
+  --sidebar-accent: #ff6600;
+  --sidebar-success: #059669;
+  --sidebar-warning: #d97706;
+  --sidebar-error: #dc2626;
+
+  /* Neutral Colors - Darker tones to complement red theme */
+  --sidebar-white: #ffffff;
+  --sidebar-gray-50: #fef2f2;
+  --sidebar-gray-100: #fee2e2;
+  --sidebar-gray-200: #fecaca;
+  --sidebar-gray-300: #fca5a5;
+  --sidebar-gray-400: #f87171;
+  --sidebar-gray-500: #64748b;
+  --sidebar-gray-600: #475569;
+  --sidebar-gray-700: #374151;
+  --sidebar-gray-800: #1f2937;
+  --sidebar-gray-900: #111827;
+
+  /* Spacing */
+  --sidebar-spacing-xs: 4px;
+  --sidebar-spacing-sm: 8px;
+  --sidebar-spacing-md: 16px;
+  --sidebar-spacing-lg: 24px;
+  --sidebar-spacing-xl: 32px;
+
+  /* Border Radius */
+  --sidebar-radius-sm: 4px;
+  --sidebar-radius-md: 8px;
+  --sidebar-radius-lg: 12px;
+  --sidebar-radius-xl: 16px;
+
+  /* Shadows */
+  --sidebar-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --sidebar-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --sidebar-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --sidebar-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Typography */
+  --sidebar-font-size-xs: 0.75rem;
+  --sidebar-font-size-sm: 0.875rem;
+  --sidebar-font-size-md: 1rem;
+  --sidebar-font-size-lg: 1.125rem;
+  --sidebar-font-size-xl: 1.25rem;
+
+  --sidebar-font-weight-normal: 400;
+  --sidebar-font-weight-medium: 500;
+  --sidebar-font-weight-semibold: 600;
+  --sidebar-font-weight-bold: 700;
+
+  /* Transitions */
+  --sidebar-transition-fast: 0.15s ease-out;
+  --sidebar-transition-normal: 0.3s ease-out;
+  --sidebar-transition-slow: 0.5s ease-out;
+
+  /* Z-index layers */
+  --sidebar-z-dropdown: 1000;
+  --sidebar-z-sidebar: 1200;
+  --sidebar-z-modal: 1300;
+  --sidebar-z-tooltip: 1400;
+}
+
+/* Dark theme overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sidebar-primary: #0f172a;
+    --sidebar-primary-light: #1e293b;
+    --sidebar-primary-dark: #020617;
+  }
+}
+
+/* Professional color schemes */
+.sidebar-theme-blue {
+  --sidebar-primary: #1e40af;
+  --sidebar-primary-light: #3b82f6;
+  --sidebar-primary-dark: #1e3a8a;
+}
+
+.sidebar-theme-green {
+  --sidebar-primary: #065f46;
+  --sidebar-primary-light: #10b981;
+  --sidebar-primary-dark: #047857;
+}
+
+.sidebar-theme-purple {
+  --sidebar-primary: #5b21b6;
+  --sidebar-primary-light: #8b5cf6;
+  --sidebar-primary-dark: #4c1d95;
+}
+
+.sidebar-theme-indigo {
+  --sidebar-primary: #3730a3;
+  --sidebar-primary-light: #6366f1;
+  --sidebar-primary-dark: #312e81;
+}

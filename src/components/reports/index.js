@@ -19,7 +19,7 @@ export { default as ReportDocument } from "./ReportDocument.jsx";
 
 // API Configuration for ReportDocument
 export const REPORTS_API_CONFIG = {
-  BASE_URL: "http://localhost:4000/api",
+  BASE_URL: "https://lmrk-backend-pmnr.vercel.app/api",
   ENDPOINTS: {
     PROGRAMME_NAMES: "/ProgrammeName",
     TIME_SLOTS: "/TimeSlots",

@@ -1,27 +1,28 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../components/reports/ReportUserOperatorChang.css';
-import '../components/reports/ReportUserRightButton.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../components/reports/ReportUserOperatorChang.css";
+import "../components/reports/ReportUserRightButton.css";
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+const API_BASE =
+  import.meta.env.VITE_API_URL || "https://lmrk-backend-pmnr.vercel.app";
 
 function Users() {
   const navigate = useNavigate();
 
   // Form state
   const [formData, setFormData] = useState({
-    userName: '',
-    userPassword: '',
-    reEnterPassword: '',
-    userType: '',
-    userAvailabilityStatus: '',
-    mobile: '',
-    email: ''
+    userName: "",
+    userPassword: "",
+    reEnterPassword: "",
+    userType: "",
+    userAvailabilityStatus: "",
+    mobile: "",
+    email: "",
   });
 
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [passwordMatch, setPasswordMatch] = useState(null); // null, true, false
   const [showPasswordStrength, setShowPasswordStrength] = useState(false);
 
@@ -31,18 +32,20 @@ function Users() {
 
     const newFormData = {
       ...formData,
-      [name]: value
+      [name]: value,
     };
 
     setFormData(newFormData);
 
     // Real-time password validation
-    if (name === 'userPassword' || name === 'reEnterPassword') {
-      const password = name === 'userPassword' ? value : newFormData.userPassword;
-      const reEnterPassword = name === 'reEnterPassword' ? value : newFormData.reEnterPassword;
+    if (name === "userPassword" || name === "reEnterPassword") {
+      const password =
+        name === "userPassword" ? value : newFormData.userPassword;
+      const reEnterPassword =
+        name === "reEnterPassword" ? value : newFormData.reEnterPassword;
 
       // Show password strength for main password
-      if (name === 'userPassword') {
+      if (name === "userPassword") {
         setShowPasswordStrength(value.length > 0);
       }
 
@@ -55,61 +58,61 @@ function Users() {
     }
 
     // Clear error when user starts typing
-    if (error) setError('');
-    if (success) setSuccess('');
+    if (error) setError("");
+    if (success) setSuccess("");
   };
 
   // Validate form
   const validateForm = () => {
     if (!formData.userName.trim()) {
-      setError('User Name is required');
+      setError("User Name is required");
       return false;
     }
 
     if (!formData.userPassword) {
-      setError('Password is required');
+      setError("Password is required");
       return false;
     }
 
     if (formData.userPassword.length < 6) {
-      setError('Password must be at least 6 characters long');
+      setError("Password must be at least 6 characters long");
       return false;
     }
 
     if (!formData.reEnterPassword) {
-      setError('Please confirm your password');
+      setError("Please confirm your password");
       return false;
     }
 
     if (formData.userPassword !== formData.reEnterPassword) {
-      setError('Passwords do not match. Please check both password fields.');
+      setError("Passwords do not match. Please check both password fields.");
       return false;
     }
 
     if (!formData.userType) {
-      setError('User Type is required');
+      setError("User Type is required");
       return false;
     }
 
     if (!formData.userAvailabilityStatus) {
-      setError('User Availability Status is required');
+      setError("User Availability Status is required");
       return false;
     }
 
     if (!formData.mobile.trim()) {
-      setError('Mobile number is required');
+      setError("Mobile number is required");
       return false;
     }
 
     if (!formData.email.trim()) {
-      setError('Email is required');
+      setError("Email is required");
       return false;
     }
 
     // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      setError('Please enter a valid email address');
+      setError("Please enter a valid email address");
       return false;
     }
 
@@ -118,7 +121,7 @@ function Users() {
 
   // Password strength validation
   const getPasswordStrength = (password) => {
-    if (!password) return { strength: 'none', message: '', color: '#ccc' };
+    if (!password) return { strength: "none", message: "", color: "#ccc" };
 
     let score = 0;
     const checks = {
@@ -126,16 +129,24 @@ function Users() {
       lowercase: /[a-z]/.test(password),
       uppercase: /[A-Z]/.test(password),
       numbers: /\d/.test(password),
-      special: /[!@#$%^&*(),.?":{}|<>]/.test(password)
+      special: /[!@#$%^&*(),.?":{}|<>]/.test(password),
     };
 
-    Object.values(checks).forEach(check => check && score++);
+    Object.values(checks).forEach((check) => check && score++);
 
-    if (score === 0) return { strength: 'very-weak', message: 'Very Weak', color: '#f44336' };
-    if (score <= 2) return { strength: 'weak', message: 'Weak', color: '#ff9800' };
-    if (score <= 3) return { strength: 'medium', message: 'Medium', color: '#ff9800' };
-    if (score <= 4) return { strength: 'strong', message: 'Strong', color: '#4caf50' };
-    return { strength: 'very-strong', message: 'Very Strong', color: '#2e7d32' };
+    if (score === 0)
+      return { strength: "very-weak", message: "Very Weak", color: "#f44336" };
+    if (score <= 2)
+      return { strength: "weak", message: "Weak", color: "#ff9800" };
+    if (score <= 3)
+      return { strength: "medium", message: "Medium", color: "#ff9800" };
+    if (score <= 4)
+      return { strength: "strong", message: "Strong", color: "#4caf50" };
+    return {
+      strength: "very-strong",
+      message: "Very Strong",
+      color: "#2e7d32",
+    };
   };
 
   // Handle save
@@ -143,14 +154,14 @@ function Users() {
     if (!validateForm()) return;
 
     setLoading(true);
-    setError('');
-    setSuccess('');
+    setError("");
+    setSuccess("");
 
     try {
       const response = await fetch(`${API_BASE}/api/usercreatapi`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           userName: formData.userName.trim(),
@@ -158,30 +169,30 @@ function Users() {
           userType: formData.userType,
           userAvailabilityStatus: formData.userAvailabilityStatus,
           mobile: formData.mobile.trim(),
-          email: formData.email.trim()
-        })
+          email: formData.email.trim(),
+        }),
       });
 
       const data = await response.json();
 
       if (response.ok && data.success) {
-        setSuccess('User created successfully!');
+        setSuccess("User created successfully!");
         // Reset form
         setFormData({
-          userName: '',
-          userPassword: '',
-          reEnterPassword: '',
-          userType: '',
-          userAvailabilityStatus: '',
-          mobile: '',
-          email: ''
+          userName: "",
+          userPassword: "",
+          reEnterPassword: "",
+          userType: "",
+          userAvailabilityStatus: "",
+          mobile: "",
+          email: "",
         });
       } else {
-        setError(data.message || 'Failed to create user');
+        setError(data.message || "Failed to create user");
       }
     } catch (err) {
-      console.error('Error creating user:', err);
-      setError('Network error. Please try again later.');
+      console.error("Error creating user:", err);
+      setError("Network error. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -189,21 +200,23 @@ function Users() {
 
   // Handle close
   const handleClose = () => {
-    navigate('/dashboard');
+    navigate("/dashboard");
   };
 
   return (
     <div className="report-user-operator-container">
       <div className="report-user-operator-form">
-        <div style={{
-          fontSize: '1.2rem',
-          color: '#6d4c41',
-          fontWeight: 'bold',
-          padding: '1rem',
-          background: '#efebe9',
-          marginBottom: '2rem',
-          textAlign: 'center'
-        }}>
+        <div
+          style={{
+            fontSize: "1.2rem",
+            color: "#6d4c41",
+            fontWeight: "bold",
+            padding: "1rem",
+            background: "#efebe9",
+            marginBottom: "2rem",
+            textAlign: "center",
+          }}
+        >
           Create New User
         </div>
 
@@ -211,11 +224,11 @@ function Users() {
         <div
           className="report-user-operator-grid"
           style={{
-            marginBottom: '1.5rem',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '1.2rem',
-            alignItems: 'start'
+            marginBottom: "1.5rem",
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "1.2rem",
+            alignItems: "start",
           }}
         >
           <div>
@@ -239,14 +252,14 @@ function Users() {
         <div
           className="report-user-operator-grid"
           style={{
-            marginBottom: '3rem',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '1.2rem',
-            alignItems: 'start'
+            marginBottom: "3rem",
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "1.2rem",
+            alignItems: "start",
           }}
         >
-          <div style={{ position: 'relative' }}>
+          <div style={{ position: "relative" }}>
             <label className="report-user-operator-label">User Password</label>
             <input
               type="password"
@@ -257,46 +270,52 @@ function Users() {
               placeholder="Enter password (min 6 characters)..."
               maxLength={100}
               style={{
-                borderColor: showPasswordStrength && formData.userPassword ?
-                  getPasswordStrength(formData.userPassword).color : '#ddd'
+                borderColor:
+                  showPasswordStrength && formData.userPassword
+                    ? getPasswordStrength(formData.userPassword).color
+                    : "#ddd",
               }}
             />
             {/* Password Strength Indicator */}
             {showPasswordStrength && formData.userPassword && (
-              <div style={{
-                position: 'absolute',
-                top: '100%',
-                left: 0,
-                right: 0,
-                zIndex: 10,
-                backgroundColor: 'white',
-                padding: '5px 8px',
-                border: '1px solid #e0e0e0',
-                borderRadius: '4px',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                marginTop: '2px'
-              }}>
-                <div style={{
-                  fontSize: '0.75rem',
-                  color: getPasswordStrength(formData.userPassword).color,
-                  fontWeight: 'bold',
-                  marginBottom: '2px'
-                }}>
-              
-                </div>
-                <div style={{
-                  fontSize: '0.65rem',
-                  color: '#666',
-                  lineHeight: '1.2'
-                }}>
-                 
-                </div>
+              <div
+                style={{
+                  position: "absolute",
+                  top: "100%",
+                  left: 0,
+                  right: 0,
+                  zIndex: 10,
+                  backgroundColor: "white",
+                  padding: "5px 8px",
+                  border: "1px solid #e0e0e0",
+                  borderRadius: "4px",
+                  boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                  marginTop: "2px",
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: "0.75rem",
+                    color: getPasswordStrength(formData.userPassword).color,
+                    fontWeight: "bold",
+                    marginBottom: "2px",
+                  }}
+                ></div>
+                <div
+                  style={{
+                    fontSize: "0.65rem",
+                    color: "#666",
+                    lineHeight: "1.2",
+                  }}
+                ></div>
               </div>
             )}
           </div>
 
-          <div style={{ position: 'relative' }}>
-            <label className="report-user-operator-label">Re-enter Password</label>
+          <div style={{ position: "relative" }}>
+            <label className="report-user-operator-label">
+              Re-enter Password
+            </label>
             <input
               type="password"
               name="reEnterPassword"
@@ -306,34 +325,42 @@ function Users() {
               placeholder="Re-enter password..."
               maxLength={100}
               style={{
-                borderColor: passwordMatch === null ? '#ddd' :
-                  passwordMatch ? '#4caf50' : '#f44336',
-                borderWidth: passwordMatch !== null ? '2px' : '1px'
+                borderColor:
+                  passwordMatch === null
+                    ? "#ddd"
+                    : passwordMatch
+                    ? "#4caf50"
+                    : "#f44336",
+                borderWidth: passwordMatch !== null ? "2px" : "1px",
               }}
             />
             {/* Password Match Indicator */}
             {passwordMatch !== null && formData.reEnterPassword && (
-              <div style={{
-                position: 'absolute',
-                top: '100%',
-                left: 0,
-                right: 0,
-                zIndex: 10,
-                backgroundColor: 'white',
-                padding: '5px 8px',
-                border: '1px solid #e0e0e0',
-                borderRadius: '4px',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                marginTop: '2px',
-                fontSize: '0.75rem',
-                color: passwordMatch ? '#4caf50' : '#f44336',
-                fontWeight: 'bold',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '5px'
-              }}>
-                <span style={{ fontSize: '0.9rem' }}>{passwordMatch ? '✓' : '✗'}</span>
-                {passwordMatch ? 'Passwords match' : 'Passwords do not match'}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "100%",
+                  left: 0,
+                  right: 0,
+                  zIndex: 10,
+                  backgroundColor: "white",
+                  padding: "5px 8px",
+                  border: "1px solid #e0e0e0",
+                  borderRadius: "4px",
+                  boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                  marginTop: "2px",
+                  fontSize: "0.75rem",
+                  color: passwordMatch ? "#4caf50" : "#f44336",
+                  fontWeight: "bold",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "5px",
+                }}
+              >
+                <span style={{ fontSize: "0.9rem" }}>
+                  {passwordMatch ? "✓" : "✗"}
+                </span>
+                {passwordMatch ? "Passwords match" : "Passwords do not match"}
               </div>
             )}
           </div>
@@ -345,11 +372,11 @@ function Users() {
         <div
           className="report-user-operator-grid"
           style={{
-            marginBottom: '1.5rem',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '1.2rem',
-            alignItems: 'start'
+            marginBottom: "1.5rem",
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "1.2rem",
+            alignItems: "start",
           }}
         >
           <div>
@@ -367,7 +394,9 @@ function Users() {
           </div>
 
           <div>
-            <label className="report-user-operator-label">User Availability Status</label>
+            <label className="report-user-operator-label">
+              User Availability Status
+            </label>
             <select
               name="userAvailabilityStatus"
               className="report-user-operator-select"
@@ -387,11 +416,11 @@ function Users() {
         <div
           className="report-user-operator-grid"
           style={{
-            marginBottom: '1.5rem',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '1.2rem',
-            alignItems: 'start'
+            marginBottom: "1.5rem",
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "1.2rem",
+            alignItems: "start",
           }}
         >
           <div>
@@ -424,14 +453,21 @@ function Users() {
         </div>
 
         {/* Buttons */}
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-start', marginTop: '2rem' }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+            justifyContent: "flex-start",
+            marginTop: "2rem",
+          }}
+        >
           <button
             className="green-btn wide-btn"
             onClick={handleSave}
             disabled={loading}
             style={{ opacity: loading ? 0.5 : 1 }}
           >
-            {loading ? 'Saving...' : 'SAVE'}
+            {loading ? "Saving..." : "SAVE"}
           </button>
           <button
             className="red-blink-btn wide-btn"
@@ -444,27 +480,31 @@ function Users() {
 
         {/* Error/Success Messages */}
         {error && (
-          <div style={{
-            color: '#d32f2f',
-            backgroundColor: '#ffebee',
-            padding: '12px',
-            borderRadius: '4px',
-            margin: '1rem 0',
-            border: '1px solid #ffcdd2'
-          }}>
+          <div
+            style={{
+              color: "#d32f2f",
+              backgroundColor: "#ffebee",
+              padding: "12px",
+              borderRadius: "4px",
+              margin: "1rem 0",
+              border: "1px solid #ffcdd2",
+            }}
+          >
             {error}
           </div>
         )}
 
         {success && (
-          <div style={{
-            color: '#2e7d32',
-            backgroundColor: '#e8f5e8',
-            padding: '12px',
-            borderRadius: '4px',
-            margin: '1rem 0',
-            border: '1px solid #c8e6c9'
-          }}>
+          <div
+            style={{
+              color: "#2e7d32",
+              backgroundColor: "#e8f5e8",
+              padding: "12px",
+              borderRadius: "4px",
+              margin: "1rem 0",
+              border: "1px solid #c8e6c9",
+            }}
+          >
             {success}
           </div>
         )}

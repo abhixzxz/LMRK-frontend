@@ -21,7 +21,7 @@ const Sidebar = ({ open, toggleSidebar }) => {
         setLoadingReports(true);
         setReportError('');
 
-        const response = await fetch('/api/reports/menu');
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/reports/menu`);
         if (!response.ok) {
           throw new Error(`Failed to load report menu: ${response.status}`);
         }
